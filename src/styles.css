@@ -5,6 +5,45 @@
 }
 
 body{
+    background-color: #125E8A;
     
-    
+    display:grid;
+
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px auto;
+    gap:20px;
+}
+
+.title-container{
+    display:flex;
+    justify-content: center;
+    align-items: end;
+}
+.title{
+    font-weight: bold;
+    font-size: 4rem;
+}
+
+.game-container{
+    border:1px solid black;
+    height:500px;
+    margin:50px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    padding:50px;
+    gap:50px;
+}
+
+.left-player-grid{
+    border: 1px solid red;
+    height:auto;
+}
+
+.right-player-grid{
+    border: 1px solid blue;
+    height:auto;
+}
+.cell{
+    border:1px solid black;
 }

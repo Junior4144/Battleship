@@ -1,4 +1,5 @@
 import "./styles.css"
-import { userPlayerOne } from "./Player"
+import gameController from './gameController'
 
-const userP1 = new userPlayerOne();
+
+gameController();

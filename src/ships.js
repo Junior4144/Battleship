@@ -1,11 +1,12 @@
 
 function Ship(length) {
     this.length = length;
-    this.hit = 0
+    this.hitAmount = 0
     this.ifSunk = false
 
     this.hit = () =>{
-        hit += 1
+        this.hitAmount += 1
+        
         //maybe this.
     }
 

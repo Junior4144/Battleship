@@ -1,7 +1,7 @@
 
 import GameBoard from "./Gameboard";
 import {leftPlayerGrid, rightPlayerGrid, body} from './dom.js'
-
+import game from './game'
 
 export function userPlayerOne(){
     const gameBoard = new GameBoard();
@@ -18,7 +18,9 @@ export function userPlayerOne(){
     for(let i = 0; i < 10; i++){
         for(let j = 0; j < 10; j++){
             const cell = document.createElement('div');
-
+            if(gameBoard.getBoard()[i][j] != 0 & gameBoard.getBoard()[i][j] != 1){
+                cell.textContent = "S"
+            }
 
             const LPGrid = leftPlayerGrid();
 
@@ -26,9 +28,38 @@ export function userPlayerOne(){
             LPGrid.appendChild(cell);
         }
     }
+    //
+
+
 }
 
-function AIPlayer() {
+export function AIPlayer() {
+    const gameBoard = new GameBoard();
+    
+    gameBoard.addShip(1, 5) // row 1 ship length 5
+    gameBoard.addShip(3, 4) // row 3 ship length 4
+    gameBoard.addShip(4, 3) // row 4 ship length 3
+    gameBoard.addShip(6, 2) // row 6 ship length 5
+    
+    for(let i = 0; i < 10; i++){
+
+        for(let j = 0; j < 10; j++){
+            const cell = document.createElement('div');
+            if(gameBoard.getBoard()[i][j] != 0 & gameBoard.getBoard()[i][j] != 1){
+                cell.textContent = "S"
+            }
+            cell.addEventListener('click', () =>{
+                game(i,j, gameBoard)
+                console.log(gameBoard)
+            });
+
+            const RPGrid = rightPlayerGrid();
+
+
+            RPGrid.appendChild(cell);
+        }
+    }
+    
 
 }
 

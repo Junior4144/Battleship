@@ -6,12 +6,12 @@ export function body(){
 }
 
 export function leftPlayerGrid(){
-    const LP = document.querySelector('.left-player');
+    const LP = document.querySelector('.left-grid');
     return LP
 }
 
 export function rightPlayerGrid(){
-    const RP = document.querySelector('.right-player');
+    const RP = document.querySelector('.right-grid');
     return RP
 }
 

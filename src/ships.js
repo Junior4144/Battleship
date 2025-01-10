@@ -1,5 +1,5 @@
 
-function Ship() {
+function Ship(length) {
     this.length = length;
     this.hit = 0
     this.ifSunk = false

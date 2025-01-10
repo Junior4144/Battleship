@@ -15,8 +15,12 @@ function GameBoard() {
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    ] 
+        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    ]
+   
+    this.getBoard = () =>{
+        return board;
+    }
     this.receiveAttack = (x, y) =>{
         
         if(board[x][y] != 0){
@@ -26,9 +30,11 @@ function GameBoard() {
 
         }
     }
-    this.addShip = (x, y) =>{
-        const ship = new Ship();
-        board[x][y] = ship
+    this.addShip = (x, length) =>{
+        const ship = new Ship(length);
+        for(let i = 0; i < length; i++){
+            board[x][i] = ship
+        }
     }
 
     this.checkIfAllSunk = () =>{

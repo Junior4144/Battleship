@@ -28,22 +28,38 @@ body{
     border:1px solid black;
     height:500px;
     margin:50px;
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
     padding:50px;
-    gap:50px;
+    gap:10px;
+   
 }
 
-.left-player-grid{
+.left-grid{
     border: 1px solid red;
-    height:auto;
+    height:400px;
+    width:400px;
+    
+    display:grid;
+    grid-template-columns: repeat(10, auto);
+    grid-template-rows: repeat(10, auto);
 }
 
-.right-player-grid{
+.right-grid{
     border: 1px solid blue;
-    height:auto;
+    height:400px;
+    width:400px;
+
+    display:grid;
+    grid-template-columns: repeat(10, auto);
+    grid-template-rows: repeat(10, auto);
+
 }
-.cell{
+.left-grid div{
     border:1px solid black;
+    
+}
+.left-grid div:hover{
+    background-color: #0c4464;
 }

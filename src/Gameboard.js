@@ -42,10 +42,13 @@ function GameBoard() {
             console.log(board);
         }
     }
-    this.addShip = (x, length) =>{
+    this.addShip = (x, y, length) =>{
         const ship = new Ship(length);
+        const X = parseInt(x);
+        const Y = parseInt(y);
+        
         for(let i = 0; i < length; i++){
-            board[x][i] = ship
+            board[X][Y + i] = ship
         }
     }
 

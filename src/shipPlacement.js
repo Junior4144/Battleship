@@ -1,18 +1,19 @@
 import game from "./game";
 import gameController from "./gameController";
-function UserData(X5, Y5, X4, Y4, X3, Y3, X2, Y2 ){
+//function UserData(X5, Y5, X4, Y4, X3, Y3, X2, Y2 ){
+function UserData(X5, X4, X3, X2, Y5, Y4, Y3, Y2 ){
 
-    this.X_CORDS_FIVE = X5;
-    this.Y_CORDS_FIVE = Y5;
+    this.X5 = X5;
+    this.Y5 = Y5;
 
-    this.X_CORDS_FOUR = X4;
-    this.Y_CORDS_FOUR = Y4;
+    this.X4 = X4;
+    this.Y4 = Y4;
 
-    this.X_CORDS_THREE = X3;
-    this.Y_CORDS_THREE = Y3;
+    this.X3 = X3;
+    this.Y3 = Y3;
 
-    this.X_CORDS_TWO = X2;
-    this.Y_CORDS_TWO = Y2;
+    this.X2 = X2;
+    this.Y2 = Y2;
 }
 
 
@@ -25,12 +26,14 @@ function shipPlacement(){
 
     form.addEventListener('submit', (event) => {
         event.preventDefault();
+        
+
+
 
         if (!form.checkValidity()){
            
         }
         else{
-
             const X5 = document.getElementById('x-ship-5').value;
             const Y5 = document.getElementById('y-ship-5').value;
 
@@ -42,12 +45,13 @@ function shipPlacement(){
 
             const X2 = document.getElementById('x-ship-2').value;
             const Y2 = document.getElementById('y-ship-2').value;
-
+  
+            //check for conflicting data
             const currBody = document.body;
             currBody.innerHTML = '';
             
 
-            const userData = new UserData(X5, Y5, X4, Y4, X3, Y3, X2, Y2)
+            const userData = new UserData(X5, X4, X3, X2, Y5, Y4, Y3, Y2 )
             gameController(userData);
         }
 

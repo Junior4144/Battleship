@@ -23,10 +23,10 @@ function GameBoard() {
         return board;
     }
     this.getIndex = (row, column) =>{
+       
         return board[row][column]
     }
     this.receiveAttack = (x, y) =>{
-        
         
         if(board[x][y] instanceof Ship){
             //hit the ship

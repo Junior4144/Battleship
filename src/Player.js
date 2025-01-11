@@ -10,7 +10,6 @@ export function userPlayerOne(){
     //apply ships
 
     
-    
     gameBoard.addShip(2, 5) // row 2 ship length 5
     gameBoard.addShip(3, 4) // row 3 ship length 4
     gameBoard.addShip(4, 3) // row 4 ship length 3
@@ -19,9 +18,29 @@ export function userPlayerOne(){
     for(let i = 0; i < 10; i++){
         for(let j = 0; j < 10; j++){
             const cell = document.createElement('div');
-            if(gameBoard.getBoard()[i][j] != 0 & gameBoard.getBoard()[i][j] != 1){
+
+            if(gameBoard.getIndex(i,j) instanceof Ship){
                 cell.textContent = "S"
             }
+
+            cell.addEventListener('click', () =>{
+                
+                if(gameBoard.getIndex(i,j) instanceof Ship){
+                    cell.textContent = 'O'
+                    game(i,j, gameBoard, "AI")
+                    console.log(gameBoard)
+                    
+                    
+                }
+                if(gameBoard.getIndex(i,j) == '0'){
+                    cell.textContent = 'X'
+                    game(i,j, gameBoard, "AI")
+                    console.log(gameBoard)
+                    
+                }
+            
+            });
+
 
             const LPGrid = leftPlayerGrid();
 
@@ -53,15 +72,29 @@ export function AIPlayer() {
             }
 
             cell.addEventListener('click', () =>{
+                //a condition that doesn activate game() if 
                 
                 if(gameBoard.getIndex(i,j) instanceof Ship){
                     cell.textContent = 'O'
+                    console.log(gameBoard.getIndex(i,j));
+                    console.log("active ship");
+                    
+                    game(i,j, gameBoard, "user")
+                    
+                    console.log(gameBoard.checkIfAllSunk())
+                    
                 }
+                if(gameBoard.getIndex(i,j) == '0'){
+                    cell.textContent = 'X'
+                    game(i,j, gameBoard, "user")
+                    console.log("active zero")
+                    console.log(gameBoard.checkIfAllSunk())
+                }
+                //if i, j == O or X nothing happens
+                // on game() the next turn is granted
                 
-
-                game(i,j, gameBoard)
-                console.log(gameBoard)
-                console.log(gameBoard.checkIfAllSunk())
+            
+            
             });
 
             const RPGrid = rightPlayerGrid();

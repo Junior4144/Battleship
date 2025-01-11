@@ -77,10 +77,10 @@ export function AIPlayer(objData) {
         for(let j = 0; j < 10; j++){
             const cell = document.createElement('div');
             
-            if(gameBoard.getIndex(i,j) instanceof Ship){
-                //Showcases ship - to be removed
-                cell.textContent = "S"
-            }
+            // if(gameBoard.getIndex(i,j) instanceof Ship){
+            //     //Showcases ship - to be removed
+            //     cell.textContent = "S"
+            // }
 
             cell.addEventListener('click', () =>{
                 //a condition that doesn activate game() if 

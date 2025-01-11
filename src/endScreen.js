@@ -14,7 +14,7 @@ function endScreen(winner){
 
     const title = document.createElement('div');
     title.classList.add('end-title');
-    title.textContent = `The Winner is ${winner}`
+    title.textContent = `The Winner is the ${winner}`
 
     end_title_container.appendChild(title);
 

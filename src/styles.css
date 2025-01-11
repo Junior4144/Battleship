@@ -62,11 +62,17 @@ body{
     grid-template-rows: repeat(10, 40px);
 
 }
+.left-grid{
+    pointer-events: none;
+    
+}
+
 .left-grid div, .right-grid div{
     border:1px solid black;
     display:flex;
     justify-content: center;
     align-items: center;
+    
     
 }
 .left-grid div:hover, .right-grid div:hover{

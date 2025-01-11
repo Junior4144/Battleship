@@ -30,6 +30,33 @@ body{
     align-items: end;
 }
 
+.grid-container{
+    border:1px solid black;
+    height:500px;
+    margin:50px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    padding:50px;
+    gap:10px;
+}
+.main-grid{
+    border: 1px solid red;
+    height:400px;
+    width:400px;
+    
+    display:grid;
+    grid-template-columns: repeat(10, 40px);
+    grid-template-rows: repeat(10, 40px);
+}
+.main-grid div{
+    border:1px solid black;
+
+}
+.main-grid div:hover{
+    background-color: #0c4464;
+}
+
 .game-container{
     border:1px solid black;
     height:500px;
@@ -77,4 +104,18 @@ body{
 }
 .left-grid div:hover, .right-grid div:hover{
     background-color: #0c4464;
+}
+
+
+form{
+    display:grid;
+    gap:10px;
+    
+}
+.button-container{
+    display:flex;
+    justify-content: flex-end;
+}
+button{
+    width:100px
 }

@@ -1,5 +1,5 @@
 import "./styles.css"
-import gameController from './gameController'
+import shipPlacement from "./shipPlacement";
 
 
 

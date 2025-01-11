@@ -5,7 +5,7 @@ function GameBoard() {
     //2d array
     //for now 0 == water
     // missed shots = X
-    // hit shot == 1
+    // hit shot == O
     let board = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -22,14 +22,18 @@ function GameBoard() {
     this.getBoard = () =>{
         return board;
     }
+    this.getIndex = (row, column) =>{
+        return board[row][column]
+    }
     this.receiveAttack = (x, y) =>{
         
-        if(board[x][y] != 0 & board[x][y] != 1){
+        
+        if(board[x][y] instanceof Ship){
             //hit the ship
             const hitShip = board[x][y];
             
             hitShip.hit();
-            board[x][y] = 1
+            board[x][y] = "O"
             console.log(board);
             
         }
@@ -51,12 +55,10 @@ function GameBoard() {
         let condition = false
         for (let i = 0; i < board.length; i++) {
             for (let j = 0; j < board.length; j++) {
-                if(board[i][j] != 0 & board[i][j] != 1){
+                if(board[i][j] instanceof Ship){
                     //check if sunk == false return false
                     //if end and non are false return true
-                    if(!board[i][j].isSunk()){
-                        return condition
-                    }
+                    return condition
                 }
             
            }

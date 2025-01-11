@@ -2,6 +2,7 @@
 import GameBoard from "./Gameboard";
 import {leftPlayerGrid, rightPlayerGrid, body} from './dom.js'
 import game from './game'
+import Ship from './ships'
 
 export function userPlayerOne(){
     const gameBoard = new GameBoard();
@@ -45,12 +46,22 @@ export function AIPlayer() {
 
         for(let j = 0; j < 10; j++){
             const cell = document.createElement('div');
-            if(gameBoard.getBoard()[i][j] != 0 & gameBoard.getBoard()[i][j] != 1){
+            
+            if(gameBoard.getIndex(i,j) instanceof Ship){
+                //Showcases ship - to be removed
                 cell.textContent = "S"
             }
+
             cell.addEventListener('click', () =>{
+                
+                if(gameBoard.getIndex(i,j) instanceof Ship){
+                    cell.textContent = 'O'
+                }
+                
+
                 game(i,j, gameBoard)
                 console.log(gameBoard)
+                console.log(gameBoard.checkIfAllSunk())
             });
 
             const RPGrid = rightPlayerGrid();

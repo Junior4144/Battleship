@@ -20,16 +20,23 @@ function endScreen(winner){
 
     const end_btn = document.createElement('button');
     end_btn.classList.add('end-btn');
-    end_btn.textContent = "restart"
+    end_btn.textContent = "Restart";
+
+    end_btn.addEventListener('click', () => {
+        window.location.reload();
+    });
 
     const end_btn_container = document.createElement('div');
     end_btn_container.classList.add('end-btn-container');
 
     end_btn_container.appendChild(end_btn);
 
+   
     end_container.appendChild(end_title_container);
+    end_container.appendChild(end_btn_container);
 
     currentBody.appendChild(end_container);
+    
 }
 
 export default endScreen;

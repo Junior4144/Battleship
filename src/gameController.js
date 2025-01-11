@@ -2,13 +2,14 @@ import { userPlayerOne, AIPlayer } from "./Player"
 import {createGame} from './dom.js'
 
 
-function gameController(objData){
+function gameController(objData, AIobjData){
 
 
     createGame();
     const userP1 = new userPlayerOne(objData);
 
-    const AI = new AIPlayer();
+    
+    const AI = new AIPlayer(AIobjData);
    
 
 

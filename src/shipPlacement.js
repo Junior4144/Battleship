@@ -52,7 +52,54 @@ function shipPlacement(){
             
 
             const userData = new UserData(X5, X4, X3, X2, Y5, Y4, Y3, Y2 )
-            gameController(userData);
+
+
+            // create of array size 10, 0-9
+            let arrX = []
+            while (arrX.length <= 4){
+                let randomNumber = Math.floor(Math.random() * 10);
+
+                if(!arrX.includes(randomNumber)){
+                    arrX.push(randomNumber)
+                }
+            }
+            // create Y array
+            let arrY = []
+            
+            while(arrY.length == 0){
+                let randomNumberY = Math.floor(Math.random() * 6);
+
+                if(!arrY.includes(randomNumberY)){
+                    arrY.push(randomNumberY)
+                }
+            }
+            while(arrY.length == 1){
+                let randomNumberY = Math.floor(Math.random() * 7);
+
+                if(!arrY.includes(randomNumberY)){
+                    arrY.push(randomNumberY)
+                }
+            }
+            while(arrY.length == 2){
+                let randomNumberY = Math.floor(Math.random() * 8);
+
+                if(!arrY.includes(randomNumberY)){
+                    arrY.push(randomNumberY)
+                }
+            }
+            while(arrY.length == 3){
+                let randomNumberY = Math.floor(Math.random() * 9);
+
+                if(!arrY.includes(randomNumberY)){
+                    arrY.push(randomNumberY)
+                }
+            }
+        
+            
+
+            
+            const AIData = new UserData(arrX[0], arrX[1],arrX[2],arrX[3],arrY[0],arrY[1],arrY[2],arrY[3])
+            gameController(userData, AIData);
         }
 
     });

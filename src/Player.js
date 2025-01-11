@@ -1,20 +1,20 @@
 
 import GameBoard from "./Gameboard";
 import {leftPlayerGrid, rightPlayerGrid, body} from './dom.js'
+import endScreen from "./endScreen";
 import game from './game'
 import Ship from './ships'
 
 export function userPlayerOne(objData){
     const gameBoard = new GameBoard();
     
-    //apply ships
-    console.log(objData);
+    
 
     
-    gameBoard.addShip(objData.X5, objData.Y5, 5) // row 2 ship length 5
-    gameBoard.addShip(objData.X4, objData.Y4, 4) // row 3 ship length 4
-    gameBoard.addShip(objData.X3, objData.Y3, 3) // row 4 ship length 3
-    gameBoard.addShip(objData.X2, objData.Y2, 2) // row 5 ship length 5
+    gameBoard.addShip(objData.X5, objData.Y5, 5) 
+    gameBoard.addShip(objData.X4, objData.Y4, 4) 
+    gameBoard.addShip(objData.X3, objData.Y3, 3) 
+    gameBoard.addShip(objData.X2, objData.Y2, 2) 
 
    
 
@@ -32,6 +32,9 @@ export function userPlayerOne(objData){
                     cell.textContent = 'O'
                     game(i,j, gameBoard, "AI")
                     console.log(gameBoard)
+                    if(gameBoard.checkIfAllSunk()){
+                        endScreen("AI");
+                    }
                     
                     
                 }
@@ -39,8 +42,12 @@ export function userPlayerOne(objData){
                     cell.textContent = 'X'
                     game(i,j, gameBoard, "AI")
                     console.log(gameBoard)
+                    if(gameBoard.checkIfAllSunk()){
+                        endScreen("AI");
+                    }
                     
                 }
+
             
             });
 
@@ -63,7 +70,8 @@ export function AIPlayer() {
     gameBoard.addShip(3, 4) // row 3 ship length 4
     gameBoard.addShip(4, 3) // row 4 ship length 3
     gameBoard.addShip(6, 2) // row 6 ship length 5
-    
+    console.log(gameBoard.getBoard())
+
     for(let i = 0; i < 10; i++){
 
         for(let j = 0; j < 10; j++){
@@ -84,14 +92,18 @@ export function AIPlayer() {
                     
                     game(i,j, gameBoard, "user")
                     
-                    console.log(gameBoard.checkIfAllSunk())
+                    if(gameBoard.checkIfAllSunk()){
+                        endScreen("user");
+                    }
                     
                 }
                 if(gameBoard.getIndex(i,j) == '0'){
                     cell.textContent = 'X'
                     game(i,j, gameBoard, "user")
                     console.log("active zero")
-                    console.log(gameBoard.checkIfAllSunk())
+                    if(gameBoard.checkIfAllSunk()){
+                        endScreen("user");
+                    }
                 }
                 //if i, j == O or X nothing happens
                 // on game() the next turn is granted
